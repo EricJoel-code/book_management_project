@@ -1,15 +1,53 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{libro.title}}</h1>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button>
-        Actualizar
-    </button>
-</form>
-{% if error %}
-<p style="color: red;">{{ error }}</p>
-{% endif %}
+<main class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4">
+                <h1 class="text-center mb-4">Actualizar: {{ libro.title }}</h1>
+
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="id_title" class="form-label">
+                            <i class="fas fa-book"></i> Título del libro:
+                        </label>
+                        <input type="text" name="title" id="id_title" class="form-control" value="{{ libro.title }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_description" class="form-label">
+                            <i class="fas fa-align-left"></i> Descripción:
+                        </label>
+                        <textarea name="description" id="id_description" class="form-control"
+                            rows="4">{{ libro.description }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_image" class="form-label">
+                            <i class="fas fa-image"></i> Imagen de portada:
+                        </label>
+                        {% if libro.image %}
+                        <img src="{{ libro.image.url }}" alt="{{ libro.title }}" class="img-fluid mb-2"
+                            style="max-width: 150px;">
+                        {% endif %}
+                        <input type="file" name="image" id="id_image" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-save"></i> Actualizar
+                    </button>
+                </form>
+
+                {% if error %}
+                <div class="alert alert-danger mt-3">
+                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}

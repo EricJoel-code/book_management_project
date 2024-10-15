@@ -1,16 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Agregar Libro</h1>
+<main class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4">
+                <h1 class="text-center mb-4">Agregar Libro</h1>
 
-{{error}}
+                {% if error %}
+                <div class="alert alert-danger">
+                    <i class="fas fa-exclamation-circle"></i> {{ error }}
+                </div>
+                {% endif %}
 
-<form action="/agregar/libro/" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form}}
+                <form action="/agregar/libro/" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
 
-    <button>
-        Guardar
-    </button>
-</form>
+                    <div class="mb-3">
+                        <label for="id_title" class="form-label">
+                            <i class="fas fa-book"></i> Título del libro:
+                        </label>
+                        <input type="text" name="title" id="id_title" class="form-control"
+                            placeholder="Ingresa el título del libro">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_description" class="form-label">
+                            <i class="fas fa-align-left"></i> Descripción:
+                        </label>
+                        <textarea name="description" id="id_description" class="form-control" rows="4"
+                            placeholder="Ingresa una descripción del libro"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="id_image" class="form-label">
+                            <i class="fas fa-image"></i> Imagen de portada:
+                        </label>
+                        <input type="file" name="image" id="id_image" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-save"></i> Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}

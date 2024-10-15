@@ -58,6 +58,7 @@ Una vez que el servidor esté en funcionamiento, podrás realizar las siguientes
 - Se implemento la función de buscar cada libro por id
 - Se implemento el manejo de errores tanto para el ingreso de libros como para la actualización
 - Se agrego estilos en la parte de inicio, registro e inicio de sesión
+- El proyecto esta terminado
 
 ## Tecnologías Utilizadas
 
@@ -67,7 +68,7 @@ Una vez que el servidor esté en funcionamiento, podrás realizar las siguientes
 
 ## Próximas Actualizaciones
 
-- Estilización con Bootstrap o CSS personalizado.
+- Si deseas agregar mas funciones puedes contribuir.
 
 ## Contribuciones
 
