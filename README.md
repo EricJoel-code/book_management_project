@@ -1,4 +1,4 @@
-# Proyecto de Gestión de Libros con Django
+# Proyecto web desarrollado en Django para la gestión de libros favoritos mediante operaciones CRUD
 
 Este es un proyecto simple de una página web para gestionar libros (CRUD) donde los usuarios pueden agregar, eliminar, actualizar y listar libros. El proyecto está construido con Django en un entorno virtual.
 
